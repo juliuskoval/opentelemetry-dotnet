@@ -81,6 +81,8 @@ internal sealed class ConsoleTagWriter : JsonStringArrayTagWriter<ConsoleTagWrit
         return true;
     }
 
+    protected override void WriteKvListTag(ref ConsoleTag state, string key, IEnumerable<KeyValuePair<string, object?>> kvList) => throw new NotImplementedException();
+
     internal struct ConsoleTag
     {
         public string? Key;

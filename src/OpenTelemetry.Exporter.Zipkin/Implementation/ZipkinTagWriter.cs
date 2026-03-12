@@ -66,4 +66,5 @@ internal sealed class ZipkinTagWriter : JsonStringArrayTagWriter<Utf8JsonWriter>
     }
 
     protected override bool TryWriteEmptyTag(ref Utf8JsonWriter state, string key, object? value) => false;
+    protected override void WriteKvListTag(ref Utf8JsonWriter state, string key, IEnumerable<KeyValuePair<string, object?>> kvList) => throw new NotImplementedException();
 }

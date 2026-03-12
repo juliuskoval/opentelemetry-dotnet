@@ -189,6 +189,11 @@ public class JsonStringArrayTagWriterTests
             tag.Value = Encoding.UTF8.GetString(arrayUtf8JsonBytes.Array!, 0, arrayUtf8JsonBytes.Count);
         }
 
+        protected override void WriteKvListTag(ref Tag state, string key, IEnumerable<KeyValuePair<string, object?>> kvList)
+        {
+            throw new NotImplementedException();
+        }
+
         protected override void OnUnsupportedTagDropped(string tagKey, string tagValueTypeFullName)
         {
         }
