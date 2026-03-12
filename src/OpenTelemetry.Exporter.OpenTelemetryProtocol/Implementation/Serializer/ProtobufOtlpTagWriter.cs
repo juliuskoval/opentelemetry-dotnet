@@ -146,38 +146,6 @@ internal sealed class ProtobufOtlpTagWriter : TagWriter<ProtobufOtlpTagWriter.Ot
         ProtobufSerializer.WriteReservedLength(state.Buffer, anyValueLengthPos, state.WritePosition - (anyValueLengthPos + ReserveSizeForLength));
     }
 
-    //    protected override void WriteKvlistTag(ref OtlpTagWriterState state, string key, IEnumerable<KeyValuePair<string, object?>> value, int? tagValueMaxLength)
-    //{
-    //    // Write KeyValue.key
-    //    state.WritePosition = ProtobufSerializer.WriteStringWithTag(state.Buffer, state.WritePosition, ProtobufOtlpCommonFieldNumberConstants.KeyValue_Key, key);
-
-    //    // Reserve space for KeyValue.value (AnyValue wrapper)
-    //    state.WritePosition = ProtobufSerializer.WriteTag(state.Buffer, state.WritePosition, ProtobufOtlpCommonFieldNumberConstants.KeyValue_Value, ProtobufWireType.LEN);
-    //    int anyValueLengthPos = state.WritePosition;
-    //    state.WritePosition += ReserveSizeForLength;
-
-    //    // Reserve space for AnyValue.kvlist_value (KeyValueList wrapper)
-    //    state.WritePosition = ProtobufSerializer.WriteTag(state.Buffer, state.WritePosition, ProtobufOtlpCommonFieldNumberConstants.AnyValue_Kvlist_Value, ProtobufWireType.LEN);
-    //    int kvlistLengthPos = state.WritePosition;
-    //    state.WritePosition += ReserveSizeForLength;
-
-    //    // Write each entry as a KeyValueList.values (repeated KeyValue)
-    //    foreach (var entry in value)
-    //    {
-    //        state.WritePosition = ProtobufSerializer.WriteTag(state.Buffer, state.WritePosition, ProtobufOtlpCommonFieldNumberConstants.KeyValueList_Values, ProtobufWireType.LEN);
-    //        int entryLengthPos = state.WritePosition;
-    //        state.WritePosition += ReserveSizeForLength;
-
-    //        this.TryWriteTag(ref state, entry.Key, entry.Value, tagValueMaxLength);
-
-    //        ProtobufSerializer.WriteReservedLength(state.Buffer, entryLengthPos, state.WritePosition - (entryLengthPos + ReserveSizeForLength));
-    //    }
-
-    //    // Backfill lengths
-    //    ProtobufSerializer.WriteReservedLength(state.Buffer, kvlistLengthPos, state.WritePosition - (kvlistLengthPos + ReserveSizeForLength));
-    //    ProtobufSerializer.WriteReservedLength(state.Buffer, anyValueLengthPos, state.WritePosition - (anyValueLengthPos + ReserveSizeForLength));
-    //}
-
     internal struct OtlpTagWriterState
     {
         public byte[] Buffer;
