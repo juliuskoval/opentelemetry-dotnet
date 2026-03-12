@@ -336,7 +336,7 @@ internal static class ProtobufOtlpLogSerializer
             var logAttributesLengthPosition = state.TagWriterState.WritePosition;
             state.TagWriterState.WritePosition += ReserveSizeForLength;
 
-            ProtobufOtlpTagWriter.Instance.TryWriteTag(ref state.TagWriterState, key, value, state.AttributeValueLengthLimit);
+            ProtobufOtlpTagWriter.Instance.TryWriteTag(ref state.TagWriterState, key, value);
 
             var logAttributesLength = state.TagWriterState.WritePosition - (logAttributesLengthPosition + ReserveSizeForLength);
             ProtobufSerializer.WriteReservedLength(state.TagWriterState.Buffer, logAttributesLengthPosition, logAttributesLength);

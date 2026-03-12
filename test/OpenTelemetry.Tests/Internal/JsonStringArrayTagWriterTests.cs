@@ -157,6 +157,11 @@ public class JsonStringArrayTagWriterTests
 #pragma warning restore IDE0370 // Suppression is unnecessary
         }
 
+        protected override void WriteKvListTag(ref Tag state, string key, IEnumerable<KeyValuePair<string, object?>> kvList)
+        {
+            throw new NotImplementedException();
+        }
+
         protected override void OnUnsupportedTagDropped(string tagKey, string tagValueTypeFullName)
         {
         }
