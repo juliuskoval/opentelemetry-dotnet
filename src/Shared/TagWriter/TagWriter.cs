@@ -74,7 +74,7 @@ internal abstract class TagWriter<TTagState, TArrayState>
                     this.WriteStringTag(
                     ref state,
                     key,
-                    Convert.ToString(value, CultureInfo.InvariantCulture).AsSpan());
+                    "TRUNCATED".AsSpan());
                     return this.LogUnsupportedTagTypeAndReturnFalse(key, value);
                 }
 
