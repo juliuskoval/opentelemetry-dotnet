@@ -67,7 +67,7 @@ internal abstract class TagWriter<TTagState, TArrayState>
             case IEnumerable<KeyValuePair<string, object?>> kvList:
                 try
                 {
-                    this.WriteKvListTag(ref state, key, kvList);
+                    this.WriteKvListTag(ref state, key, kvList, tagValueMaxLength);
                 }
                 catch
                 {
@@ -150,7 +150,7 @@ internal abstract class TagWriter<TTagState, TArrayState>
 
     protected abstract void WriteArrayTag(ref TTagState state, string key, ref TArrayState value);
 
-    protected abstract void WriteKvListTag(ref TTagState state, string key, IEnumerable<KeyValuePair<string, object?>> kvList);
+    protected abstract void WriteKvListTag(ref TTagState state, string key, IEnumerable<KeyValuePair<string, object?>> kvList, int? tagValueMaxLength);
 
     protected abstract void OnUnsupportedTagDropped(
         string tagKey,

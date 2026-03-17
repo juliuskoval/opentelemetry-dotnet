@@ -103,7 +103,7 @@ internal sealed class ProtobufOtlpTagWriter : TagWriter<ProtobufOtlpTagWriter.Ot
         return true;
     }
 
-    protected override void WriteKvListTag(ref OtlpTagWriterState state, string key, IEnumerable<KeyValuePair<string, object?>> kvList)
+    protected override void WriteKvListTag(ref OtlpTagWriterState state, string key, IEnumerable<KeyValuePair<string, object?>> kvList, int? tagValueMaxLength) // TODO tagValueMaxLength
     {
         var startPosition = state.WritePosition;
 
